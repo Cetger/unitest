@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#f26422</color>
+    <color name="colorPrimaryDark">#f26422</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorBlueForLink">#1477dc</color>
+    <color name="colorWhite">#fff</color>
+    <color name="colorGrayForCornerOfEdit">#c5c5c5</color>
+    <color name="colorGrayForEdit">#f6f6f6</color>
+    <color name="colorOrange">#f26422</color>
+
+
+    <color name="darkblue">#1c3b4f </color>
+    <color name="bluefortheme">#20445a</color>
+
+</resources>

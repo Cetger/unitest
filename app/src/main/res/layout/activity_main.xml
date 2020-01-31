@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:id="@+id/fragment_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-16dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Hoşgeldiniz"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/fragment_layout" />
+
+    <Button
+        android:id="@+id/stajbutton"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/loginbuttonback"
+        android:text="Staj imkanlarını öğren"
+        android:textColor="@color/colorWhite"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="0dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="Notlar"
+        android:background="#720026"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintEnd_toStartOf="@+id/button5"
+        app:layout_constraintStart_toStartOf="@+id/stajbutton"
+        app:layout_constraintTop_toBottomOf="@+id/stajbutton" />
+
+    <Button
+        android:id="@+id/etkinlikbuton"
+        android:layout_width="0dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="#5db7de"
+        android:textColor="@color/colorWhite"
+        android:text="Etkinlikler"
+        app:layout_constraintEnd_toStartOf="@+id/button5"
+        app:layout_constraintStart_toStartOf="@+id/button4"
+        app:layout_constraintTop_toBottomOf="@+id/button4" />
+
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="155dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="16dp"
+        android:background="#f9cb40"
+        android:text="Öğrenci\n Gözünden"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintEnd_toEndOf="@+id/stajbutton"
+        app:layout_constraintTop_toBottomOf="@+id/stajbutton" />
+
+
+
+
+
+    <com.gauravk.bubblenavigation.BubbleNavigationConstraintView
+        android:id="@+id/top_navigation_constraint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/loginbackcontainer"
+        android:elevation="4dp"
+        android:padding="12dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginHorizontal="20dp"
+        app:bnc_mode="inside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/staj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_active="true"
+            app:bt_colorActive="#086788"
+            app:bt_colorInactive="#FF929292"
+            app:bt_icon="@drawable/person_black"
+            app:bt_padding="10dp"
+            app:bt_title="Staj"
+            app:bt_titlePadding="3dp" />
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/notlar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_active="true"
+            app:bt_colorActive="#f0a202"
+            app:bt_colorInactive="#d2d2d2"
+            app:bt_icon="@drawable/person_black"
+            app:bt_padding="10dp"
+            app:bt_title="Notlar"
+            app:bt_titlePadding="3dp" />
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/etkinlikler"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_active="true"
+            app:bt_colorActive="#00a7e1"
+            app:bt_colorInactive="#d2d2d2"
+            app:bt_icon="@drawable/person_black"
+            app:bt_padding="10dp"
+            app:bt_title="Etkinlikler "
+            app:bt_titlePadding="3dp" />
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/ogrencigozu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_active="true"
+            app:bt_colorActive="#39b54a"
+            app:bt_colorInactive="#d2d2d2"
+            app:bt_icon="@drawable/person_black"
+            app:bt_padding="10dp"
+            app:bt_title="Öğrenci gözünden"
+            app:bt_titlePadding="3dp" />
+
+        <!-- Add more child items here - max upto 5 -->
+
+    </com.gauravk.bubblenavigation.BubbleNavigationConstraintView>
+</androidx.constraintlayout.widget.ConstraintLayout>
