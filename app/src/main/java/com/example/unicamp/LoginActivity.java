@@ -56,7 +56,6 @@ public class LoginActivity extends AppCompatActivity {
        if(username.equals("admin")&&pass.equals("123")){
            Toast.makeText(this, "Hoşgeldiniz", Toast.LENGTH_SHORT).show();
            Intent intent = new Intent(getBaseContext(), MainActivity.class);
-           intent.putExtra("username", username);
            startActivity(intent);
 
        }

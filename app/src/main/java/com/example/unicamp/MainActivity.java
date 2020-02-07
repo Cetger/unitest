@@ -3,6 +3,7 @@ package com.example.unicamp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,22 +21,21 @@ import com.gauravk.bubblenavigation.listener.BubbleNavigationChangeListener;
 public class MainActivity extends AppCompatActivity {
 
 
-    Button staj,etki,ognoz,not;
+    Button staj, etki, ognoz, not, konferans;
     BubbleNavigationConstraintView bubbleNavigation;
-    TextView hosgeldin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String usernameString = getIntent().getStringExtra("username");
 
-        staj=findViewById(R.id.stajbutton);
-        etki=findViewById(R.id.etkinlikbuton);
-        ognoz=findViewById(R.id.button5);
-        not=findViewById(R.id.button4);
+        staj = findViewById(R.id.stajbutton);
+        etki = findViewById(R.id.etkbutton);
+        ognoz = findViewById(R.id.ogrgozubutton);
+        not = findViewById(R.id.notbutton);
+        konferans = findViewById(R.id.konferansButton);
 
-        hosgeldin=findViewById(R.id.textView4);
 
         staj.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,21 +53,28 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        konferans.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openFragment(2);
+            }
+        });
+
         ognoz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openFragment(3);
+               openOg();
             }
         });
 
         not.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openFragment(1);
+                openFragment(4);
             }
         });
 
-        bubbleNavigation=findViewById(R.id.top_navigation_constraint);
+        bubbleNavigation = findViewById(R.id.top_navigation_constraint);
 
         bubbleNavigation.setNavigationChangeListener(new BubbleNavigationChangeListener() {
             @Override
@@ -79,43 +86,54 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    void openFragment(int position){
+    void openFragment(int position) {
 
         staj.setVisibility(View.INVISIBLE);
         not.setVisibility(View.INVISIBLE);
         etki.setVisibility(View.INVISIBLE);
         ognoz.setVisibility(View.INVISIBLE);
-        hosgeldin.setVisibility(View.INVISIBLE);
+        konferans.setVisibility(View.INVISIBLE);
+        Fragment selected = null;
 
-        Fragment selected=null;
-        switch (position){
+        if(position!=3){
+            switch (position) {
 
-            case 0:
-                Log.e("Tag","0 Düştü");
-                selected=new fragment_intern();
-                break;
-            case 1:
-                Log.e("Tag","1 Düştü");
-                selected=new fragment_notlar();
-                break;
-            case 2:
-                Log.e("Tag","2 Düştü");
-                selected=new fragment_etkinlikler();
-                break;
-            case 3:
-                Log.e("Tag","3 Düştü");
-                selected=new fragment_ogrenci();
-                break;
-            default:
-                Log.e("Tag","Default");
-                break;
+                case 0:
+                    Log.e("Tag", "0 Düştü");
+                    selected = new fragment_intern();
+                    break;
+                case 1:
+                    Log.e("Tag", "1 Düştü");
+                    selected = new fragment_etkinlikler();
+                    break;
+                case 2:
+                    Log.e("Tag", "2 Düştü");
+                    selected = new fragment_etkinlikler();
+                    break;
+                case 4:
+                    Log.e("Tag", "3 Düştü");
+                    selected = new fragment_notlar();
+                    break;
+                default:
+                    Log.e("Tag", "Default");
+                    break;
+            }
+
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, selected).commit();
+        }
+        else {
+            openOg();
         }
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout,selected).commit();
+    }
+
+    void openOg(){
+        Intent intent = new Intent(MainActivity.this, CompareTwoUni.class);
+        startActivity(intent);
     }
 
     @Override
     public void onBackPressed() {
-       // super.onBackPressed();
+         super.onBackPressed();
     }
 }

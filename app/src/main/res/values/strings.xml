@@ -7,4 +7,19 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string-array name="universities">
+        <item>Bilkent Üni.</item>
+        <item>İstanbul Teknik Üni.</item>
+        <item>Yeditepe Üni.</item>
+        <item>Marmara Üni.</item>
+        <item>Hacettepe Üni.</item>
+    </string-array>
+
+    <string-array name="bolumler">
+        <item>Tıp</item>
+        <item>Hukuk</item>
+        <item>Mühendislik</item>
+    </string-array>
 </resources>
